@@ -28,7 +28,7 @@ Set::Set(int n ...)
 	 bool minus = 0;
 	 bool space=0;
 	 char c;
-	 
+	 std::cout << "Enter Set(a b c <Enter>) : ";
 	do 
 	 {
 		 c = _getch();
@@ -44,6 +44,7 @@ Set::Set(int n ...)
 				 tempInt = 0;
 				 if (c == 13)
 				 {
+					 std::cout << std::endl;
 					 break;
 				 }
 				 space = 1;

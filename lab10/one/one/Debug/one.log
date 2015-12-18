@@ -1,12 +1,12 @@
-﻿Сборка начата 19.11.2015 21:23:17.
+﻿Сборка начата 15.12.2015 19:52:56.
      1>Проект "E:\Учеба\Second\ООП\лабы\lab10\one\one\one.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(15): warning C4018: <: несоответствие типов со знаком и без знака
-     1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(34): warning C4018: <: несоответствие типов со знаком и без знака
-     1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(48): warning C4018: <: несоответствие типов со знаком и без знака
-     1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(52): warning C4018: <: несоответствие типов со знаком и без знака
+     1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(35): warning C4018: <: несоответствие типов со знаком и без знака
+     1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(49): warning C4018: <: несоответствие типов со знаком и без знака
+     1>e:\учеба\second\ооп\лабы\lab10\one\one\main.cpp(53): warning C4018: <: несоответствие типов со знаком и без знака
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Учеба\Second\ООП\лабы\lab10\one\Debug\one.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Учеба\Second\ООП\лабы\lab10\one\Debug\one.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Учеба\Second\ООП\лабы\lab10\one\Debug\one.lib" /MACHINE:X86 Debug\main.obj
          one.vcxproj -> E:\Учеба\Second\ООП\лабы\lab10\one\Debug\one.exe
@@ -14,4 +14,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.10
+Затраченное время: 00:00:01.77

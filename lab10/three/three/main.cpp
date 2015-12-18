@@ -1,87 +1,99 @@
 #include <iostream>
-#include <string>
-#include <stack>
+#include "Set.h"
 #include <vector>
-
+#include <stack>
+#include <string>
+#include <windows.h>
 using namespace std;
 
 void main()
 {
-	vector<string> my_vector;
-	vector<string> my_vector_temp;
-	my_vector.push_back("A string vector");
-	my_vector.push_back("D string vector");
-	my_vector.push_back("B string vector");
-	my_vector.push_back("C string vector");
-	cout << "---------------------------- Vektor ----------------------------" << endl;
-	for (int i = 0; i < my_vector.size(); i++)
+	vector<Set> my_vector;//создаем контейнер типа vector для элементов пользовательского класса Set
+	vector<Set> for_sort;
+	Set a1, a2, a3, a4;//создаем объекты типа Set
+	cin >> a1;//инициализмруем объекты (ТРИ ЧИСЛА ЧЕРЕЗ ПРОБЕЛ, В КОНЦЕ ENTER!!!!!!!!!!!!!!!)
+	cin >> a2;
+	cin >> a3;
+	cin >> a4;
+	my_vector.push_back(a1);//вставляем элементы в конец контейнера
+	my_vector.push_back(a2);
+	my_vector.push_back(a3);
+	my_vector.push_back(a4);
+	cout << "----------------------- Vektor ----------------------" << endl;
+	for (int i = 0; i < my_vector.size(); i++)//выводим на экран элементы вектора, получая элемент через индекс i
 	{
 		cout << my_vector[i] << endl;
 	}
-	cout << "---------------------------- Vektor after sort ----------------------------" << endl;
-	vector<string> temp_for_sort;
-	
-	int k = 0;
-	bool flag = 0;
 
-	temp_for_sort.push_back(my_vector[0]);
+	
+	cout << "----------- Sort Vektor by the sum numbers of the set -------------" << endl;
+	int k = 0;
+	for_sort.push_back(my_vector[0]);//сортируем контейнер по сумме элементов множества
 
 	for (int i = 1; i < my_vector.size(); i++)
 	{
-		for (int j = 0; j < temp_for_sort.size(); j++)
+		for (int j = 0; j < for_sort.size(); j++)
 		{
-			if (temp_for_sort[j] < my_vector[i]) { k++;}
+			if (for_sort[j].sum() < my_vector[i].sum()) { k++; }
 		}
 		if (k == 0)
 		{
-			temp_for_sort.push_back(my_vector[i]);
+			for_sort.push_back(my_vector[i]);
 		}
 		else
 		{
-			vector<string>::iterator it = temp_for_sort.begin();
+			vector<Set>::iterator it = for_sort.begin();
 			it += k;
-			temp_for_sort.insert(it, my_vector[i]);
+			for_sort.insert(it, my_vector[i]);
 			k = 0;
-			it = temp_for_sort.begin();
+			it = for_sort.begin();
 		}
 	}
 
-	for (int i = 0; i < temp_for_sort.size(); i++)
+	my_vector = for_sort;
+
+	for (int i = 0; i < my_vector.size(); i++)//выводим на экран элементы вектора, получая элемент через индекс i
 	{
-		cout << temp_for_sort[i] << endl;
+		cout << my_vector[i] << endl;
 	}
 
-	cout << "----------------------- Add in stack elements more B -----------------" << endl;
-	stack<string> my_stack;
-
-	for (int i = 0; i < my_vector.size(); i++)
+	cout << "-------------- Move on the stack elements sum numbers of the set < 12  -------------" << endl;
+	stack<Set> my_stack;
+	for (int i = 0; i < my_vector.size(); i++)//заносим в стек элементы, сумма множества уоторого <4
 	{
-		if (my_vector[i] >= "C")
-		{
+		if (my_vector[i].sum() < 12)
 			my_stack.push(my_vector[i]);
-		}
 	}
-	
-	while(!my_stack.empty())
+	stack<Set> my_stack2 = my_stack;//делаем копию стека, т.к. при просмотре стека он очищается
+	for (int i = 0; i < my_stack2.size(); i++)//выводим стек на экран
 	{
-		cout << my_stack.top() << endl;
-		 my_vector_temp.push_back(my_stack.top());
+		cout << my_stack2.top() << endl;
+		my_stack2.pop();
+	}
+
+	cout << "---- Create a third container and insert into it elements of the previous two ----"<<endl;
+	vector<Set> my_vector2;
+	for (int i = 0; i < my_vector.size(); i++)//вставляем в новый контейнер элементы первого 
+	{	
+		my_vector2.push_back(my_vector[i]);
+	}
+	for (int i = 0; i < my_stack.size(); i++)//вставляем в новый контейнер элементы стека
+	{
+		my_vector2.push_back(my_stack.top());
 		my_stack.pop();
 	}
-
-	for (int i = 0; i < temp_for_sort.size(); i++)
+	for (int i = 0; i < my_vector2.size(); i++)//выводим на экран элементы вектора, получая элемент через индекс i
 	{
-		my_vector_temp.push_back(temp_for_sort[i]);
+		cout << my_vector2[i] << endl;
 	}
 
+	cout << "----------------------- amount of elements sum >10  ----------------------" << endl;
+	int num = 0;
 
-	cout << "----------------------- Third container -----------------" << endl;
-	for (int i = 0; i < my_vector_temp.size(); i++)
+	for (int i = 0; i < my_vector2.size(); i++)//считаем кол-во элементов в контейнере > 10
 	{
-		cout << my_vector_temp[i] << endl;
+		if (my_vector2[i].sum()>10)num++;
+		
 	}
-	
-
-
-
+	cout << num<< endl;
 }
